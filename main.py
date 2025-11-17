@@ -1,16 +1,38 @@
-# Это пример Python скрипта.
-
-# Нажмите Shift+F10 для выполнения или замените его своим кодом.
-# Нажмите Двойное нажатие Shift для поиска везде: классы, файлы, окна инструментов, действия и настройки.
+import tkinter as tk
+from turtle import RawTurtle, TurtleScreen, ScrolledCanvas
 
 
-def print_hi(name):
-    # Используйте точку останова в строке кода ниже для отладки скрипта.
-    print(f'Hi, {name}')  # Нажмите Ctrl+F8 для переключения точки останова.
+def create_turtle_pattern():
+    root = tk.Tk()
+    root.title("Мой узор")
+
+    canvas = ScrolledCanvas(root, width=600, height=500)
+    canvas.pack()
+
+    screen = TurtleScreen(canvas)
+    screen.bgcolor("white")
+
+    turtle = RawTurtle(screen)
+    turtle.speed(5)
+
+    # Цвета
+    colors = ["red", "blue", "green", "purple"]
+
+    # Рисуем узор
+    for i in range(100):
+        turtle.color(colors[i % 4])
+        turtle.pensize(1 + (i % 3))
+        turtle.forward(i * 2)
+        turtle.left(91)
+
+    # Подпись
+    turtle.penup()
+    turtle.goto(200, -200)
+    turtle.color("black")
+    turtle.write("Алексей", font=("Arial", 14, "normal"))
+
+    turtle.hideturtle()
+    root.mainloop()
 
 
-# Нажмите зеленую кнопку на полях для запуска скрипта.
-if __name__ == '__main__':
-    print_hi('PyCharm')
-
-# Справка PyCharm доступна на https://www.jetbrains.com/help/pycharm/
+create_turtle_pattern()
