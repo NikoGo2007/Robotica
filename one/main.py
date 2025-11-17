@@ -29,7 +29,7 @@ def create_turtle_pattern():
     turtle.penup()
     turtle.goto(200, -200)
     turtle.color("black")
-    turtle.write("Кове", font=("Arial", 14, "normal"))
+    turtle.write("Никита", font=("Arial", 14, "normal"))
 
     turtle.hideturtle()
     root.mainloop()
